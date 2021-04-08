@@ -316,10 +316,23 @@
                                         ]
                                     },
                                     {
-                                        "Fn::ImportValue": "us-east-1-jumpcloud-idp-SynapseDevDeveloperSamlProviderRoleArn"
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "Fn::ImportValue": "us-east-1-jumpcloud-idp-SynapseDevDeveloperSamlProviderRoleArn",
+                                                "/*"
+                                            ]
+
+                                        ]
                                     },
                                     {
-                                        "Fn::ImportValue": "us-east-1-jumpcloud-idp-SynapseDevAdminSamlProviderRoleArn"
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "Fn::ImportValue": "us-east-1-jumpcloud-idp-SynapseDevAdminSamlProviderRoleArn",
+                                                "/*"
+                                            ]
+                                        ]
                                     }
                                 ]
                             },
