@@ -319,18 +319,19 @@
                                         "Fn::Join": [
                                             "",
                                             [
-                                                "Fn::ImportValue": "us-east-1-jumpcloud-idp-SynapseDevDeveloperSamlProviderRoleArn",
-                                                "/*"
+                                                "arn:aws:sts::",
+                                                { "Ref": "AWS::AccountId" },
+                                                ":assumed-role/synapsedev-admin/*"
                                             ]
-
                                         ]
                                     },
                                     {
                                         "Fn::Join": [
                                             "",
                                             [
-                                                "Fn::ImportValue": "us-east-1-jumpcloud-idp-SynapseDevAdminSamlProviderRoleArn",
-                                                "/*"
+                                                "arn:aws:sts::",
+                                                { "Ref": "AWS::AccountId" },
+                                                ":assumed-role/synapsedev-developer/*"
                                             ]
                                         ]
                                     }
