@@ -97,6 +97,10 @@ Parameters:
     Type: String
     Default: '906769aa66-f671b9c2-3131-4051-b712-4668914bbfe0'
 
+  synapseDatawarehouseDeveloperGroup: #JC aws-synapsedw-developers
+    Type: String
+    Default: 'a4189478-90c1-700e-92ac-08dd8ae2df60'
+
   imageCentralAmiLibrarianGroup:   #JC aws-imagecentral-ami-librarians
     Type: String
     Default: '906769aa66-8bfbe918-2d30-467e-9e98-92232e9f8410'
@@ -718,6 +722,23 @@ SsoSynapseProdViewer:
     instanceArn: !Ref instanceArn
     principalId: !Ref synapseProdViewerGroup
     permissionSetArn: !CopyValue [ !Sub '${resourcePrefix}-${appName}-viewer-permission-set-arn' ]
+
+SsoSynapseDatawarehouseDeveloper:
+  Type: update-stacks
+  DependsOn: SsoDeveloper
+  Template: https://raw.githubusercontent.com/Sage-Bionetworks/aws-infra/v0.3.8/templates/SSO/aws-sso.yaml
+  StackName: !Sub '${resourcePrefix}-${appName}-synapsedw-developer'
+  StackDescription: 'SSO: developer role used by synapsedw developer group'
+  DefaultOrganizationBindingRegion: !Ref primaryRegion
+  DefaultOrganizationBinding:
+    IncludeMasterAccount: true
+  OrganizationBindings:
+    TargetBinding:
+      Account: !Ref SynapseDWAccount
+  Parameters:
+    instanceArn: !Ref instanceArn
+    principalId: !Ref synapseDatawarehouseDeveloperGroup
+    permissionSetArn: !CopyValue [ !Sub '${resourcePrefix}-${appName}-developer-permission-set-arn' ]
 
 SsoImageCentralAmiLibrarian:
   Type: update-stacks
