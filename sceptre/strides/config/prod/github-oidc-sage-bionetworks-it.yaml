@@ -6,6 +6,8 @@ parameters:
   ManagedPolicyArns:
     - "arn:aws:iam::aws:policy/AdministratorAccess"
   GitHubOrg: "Sage-Bionetworks-IT"
+  ThumbprintList:
+    - "6938fd4d98bab03faadb97b34396831e3780aea1"
 sceptre_user_data:
   Repositories:
     - name: "organizations-infra"
