@@ -55,9 +55,6 @@ Resources:
               - arn:aws:s3:::prod.cancercomplexity.synapse.org/*
               - arn:aws:s3:::staging.cancercomplexity.synapse.org
               - arn:aws:s3:::staging.cancercomplexity.synapse.org/*
-              # redirect rule in static website (IT-5419)
-              - arn:aws:s3:::brainsomaticmosaicism.org
-              - arn:aws:s3:::brainsomaticmosaicism.org/*
               # Exempt bootstrap S3 Cloudformation bucket (IT-5408)
               - arn:aws:s3:::bootstrap-awss3cloudformationbucket-19qromfd235z9
               - arn:aws:s3:::bootstrap-awss3cloudformationbucket-19qromfd235z9/*
